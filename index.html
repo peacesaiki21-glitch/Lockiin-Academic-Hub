@@ -1543,5 +1543,197 @@ document.getElementById("year").textContent = new Date().getFullYear();
 </div>
 
 <!-- END LOCKIIN STUDENT PORTAL -->
+  <script>
+(function () {
+
+  const root = document.getElementById("lockiin-portal");
+
+  if (!root) return;
+
+  const get = id => root.querySelector("#" + id);
+
+  const overlay = get("portalOverlay");
+  const portalForms = get("portalForms");
+  const dashboard = get("portalDashboard");
+
+  // Temporary demonstration account.
+  // This is not permanent or secure authentication.
+  let demoStudent = null;
+
+  // Open the portal.
+  function openPortal(page) {
+
+    overlay.classList.add("active");
+
+    portalForms.style.display = "block";
+    dashboard.classList.remove("active");
+
+    if (page === "login") {
+      showLogin();
+    } else {
+      showRegister();
+    }
+  }
+
+  // Make the function available to the homepage header buttons.
+  window.openPortal = openPortal;
+
+  // Close the portal.
+  function closePortal() {
+    overlay.classList.remove("active");
+  }
+
+  // Show registration.
+  function showRegister() {
+    get("registerForm").style.display = "block";
+    get("loginForm").style.display = "none";
+  }
+
+  // Show login.
+  function showLogin() {
+    get("registerForm").style.display = "none";
+    get("loginForm").style.display = "block";
+  }
+
+  // Display student dashboard.
+  function showDashboard(student) {
+
+    portalForms.style.display = "none";
+
+    dashboard.classList.add("active");
+
+    get("welcomeStudent").textContent =
+      "Welcome, " + student.name + "!";
+
+    get("studentDetails").textContent =
+      student.university + " · " +
+      student.faculty + " · " +
+      student.department + " · " +
+      student.level;
+
+  }
+
+  // Open and close controls.
+  get("portalOpen").addEventListener("click", function () {
+    openPortal("register");
+  });
+
+  get("portalClose").addEventListener("click", closePortal);
+
+  get("showLogin").addEventListener("click", showLogin);
+
+  get("showRegister").addEventListener("click", showRegister);
+
+  // Close when someone clicks outside the portal box.
+  overlay.addEventListener("click", function (event) {
+
+    if (event.target === overlay) {
+      closePortal();
+    }
+
+  });
+
+  // Student registration.
+  get("lockiinRegister").addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const password = get("regPassword").value;
+
+    if (password.length < 8) {
+      alert("Your password must contain at least 8 characters.");
+      return;
+    }
+
+    demoStudent = {
+
+      name: get("regName").value.trim(),
+
+      email: get("regEmail").value.trim().toLowerCase(),
+
+      university: get("regUniversity").value,
+
+      faculty: get("regFaculty").value.trim(),
+
+      department: get("regDepartment").value.trim(),
+
+      level: get("regLevel").value,
+
+      password: password
+
+    };
+
+    alert("Your demonstration profile has been created!");
+
+    showDashboard(demoStudent);
+
+  });
+
+  // Student login.
+  get("lockiinLogin").addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const email =
+      get("loginEmail").value.trim().toLowerCase();
+
+    const password =
+      get("loginPassword").value;
+
+    if (
+      !demoStudent ||
+      email !== demoStudent.email ||
+      password !== demoStudent.password
+    ) {
+
+      alert(
+        "No matching demonstration account found. Register first."
+      );
+
+      return;
+
+    }
+
+    alert("Demonstration login successful!");
+
+    showDashboard(demoStudent);
+
+  });
+
+  // Student logout.
+  get("portalLogout").addEventListener("click", function () {
+
+    demoStudent = null;
+
+    get("lockiinRegister").reset();
+
+    get("lockiinLogin").reset();
+
+    portalForms.style.display = "block";
+
+    dashboard.classList.remove("active");
+
+    showLogin();
+
+    closePortal();
+
+  });
+
+  // Close portal with Escape key.
+  document.addEventListener("keydown", function (event) {
+
+    if (
+      event.key === "Escape" &&
+      overlay.classList.contains("active")
+    ) {
+
+      closePortal();
+
+    }
+
+  });
+
+})();
+</script>
 </body>
 </html>
