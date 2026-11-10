@@ -1361,6 +1361,187 @@ document.addEventListener("keydown", event => {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+<!-- LOCKIIN STUDENT PORTAL -->
 
+<div id="lockiin-portal">
+
+  <!-- Floating portal button -->
+  <button class="portal-launch" id="portalOpen" type="button">
+    Student Portal ↗
+  </button>
+
+  <!-- Portal popup -->
+  <div class="portal-overlay" id="portalOverlay">
+    <div class="portal-box">
+
+      <button
+        class="portal-close"
+        id="portalClose"
+        type="button"
+        aria-label="Close portal"
+      >&times;</button>
+
+      <!-- REGISTRATION AND LOGIN -->
+      <div id="portalForms">
+
+        <!-- REGISTRATION -->
+        <div id="registerForm">
+
+          <h2>Join LOCKIIN</h2>
+          <p class="portal-sub">Create your student profile.</p>
+
+          <form id="lockiinRegister">
+
+            <label for="regName">Full name</label>
+            <input
+              id="regName"
+              type="text"
+              required
+              placeholder="Enter your full name"
+              autocomplete="name"
+            >
+
+            <label for="regEmail">Email address</label>
+            <input
+              id="regEmail"
+              type="email"
+              required
+              placeholder="Enter your email"
+              autocomplete="email"
+            >
+
+            <label for="regUniversity">University</label>
+            <select id="regUniversity" required>
+              <option value="">Select university</option>
+              <option value="Abia State University (ABSU)">
+                Abia State University (ABSU)
+              </option>
+            </select>
+
+            <label for="regFaculty">Faculty</label>
+            <input
+              id="regFaculty"
+              type="text"
+              required
+              placeholder="e.g. Science"
+            >
+
+            <label for="regDepartment">Department</label>
+            <input
+              id="regDepartment"
+              type="text"
+              required
+              placeholder="e.g. Microbiology"
+            >
+
+            <label for="regLevel">Academic level</label>
+            <select id="regLevel" required>
+              <option value="">Select level</option>
+              <option>100 Level</option>
+              <option>200 Level</option>
+              <option>300 Level</option>
+              <option>400 Level</option>
+              <option>500 Level</option>
+              <option>600 Level</option>
+            </select>
+
+            <label for="regPassword">Password</label>
+            <input
+              id="regPassword"
+              type="password"
+              minlength="8"
+              required
+              placeholder="At least 8 characters"
+              autocomplete="new-password"
+            >
+
+            <button class="portal-submit" type="submit">
+              Create student profile
+            </button>
+
+          </form>
+
+          <div class="portal-switch">
+            Already registered?
+            <button id="showLogin" type="button">Log in</button>
+          </div>
+
+        </div>
+
+        <!-- LOGIN -->
+        <div id="loginForm" style="display:none">
+
+          <h2>Welcome back!</h2>
+          <p class="portal-sub">Log in to your LOCKIIN account.</p>
+
+          <form id="lockiinLogin">
+
+            <label for="loginEmail">Email address</label>
+            <input
+              id="loginEmail"
+              type="email"
+              required
+              placeholder="Your email"
+              autocomplete="email"
+            >
+
+            <label for="loginPassword">Password</label>
+            <input
+              id="loginPassword"
+              type="password"
+              required
+              placeholder="Your password"
+              autocomplete="current-password"
+            >
+
+            <button class="portal-submit" type="submit">
+              Log in
+            </button>
+
+          </form>
+
+          <div class="portal-switch">
+            New to LOCKIIN?
+            <button id="showRegister" type="button">
+              Create account
+            </button>
+          </div>
+
+        </div>
+
+        <div class="portal-note">
+          Prototype only: this demonstration does not create secure,
+          permanent accounts. Do not enter a real password.
+          Secure student authentication will be connected later.
+        </div>
+
+      </div>
+
+      <!-- STUDENT DASHBOARD -->
+      <div class="portal-dashboard" id="portalDashboard">
+
+        <h2 id="welcomeStudent">Welcome!</h2>
+
+        <p class="portal-sub">
+          Your academic world, connected.
+        </p>
+
+        <div class="portal-card">
+          <strong>Student profile</strong>
+          <p id="studentDetails"></p>
+        </div>
+
+        <button class="portal-logout" id="portalLogout" type="button">
+          Log out
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- END LOCKIIN STUDENT PORTAL -->
 </body>
 </html>
