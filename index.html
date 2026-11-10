@@ -1546,28 +1546,33 @@ document.getElementById("year").textContent = new Date().getFullYear();
   
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <script>
+
+<script>
 (function () {
-
   const root = document.getElementById("lockiin-portal");
-
   if (!root) return;
 
   const get = id => root.querySelector("#" + id);
-
   const overlay = get("portalOverlay");
   const portalForms = get("portalForms");
   const dashboard = get("portalDashboard");
 
-  // Temporary demonstration account.
-  // This is not permanent or secure authentication.
-  let demoStudent = null;
+  // LOCKIIN Supabase connection
+  const SUPABASE_URL = "https://zvakgdtnwdierymrcxaa.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_6XUQJndp0x7ipdSPYaE6KA_pg85ZsoB";
 
-  // Open the portal.
+  if (!window.supabase) {
+    alert("LOCKIIN could not load Supabase. Please refresh the page.");
+    return;
+  }
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
   function openPortal(page) {
-
     overlay.classList.add("active");
-
     portalForms.style.display = "block";
     dashboard.classList.remove("active");
 
@@ -1576,47 +1581,75 @@ document.getElementById("year").textContent = new Date().getFullYear();
     } else {
       showRegister();
     }
+
+    restoreSession();
   }
 
-  // Make the function available to the homepage header buttons.
   window.openPortal = openPortal;
 
-  // Close the portal.
   function closePortal() {
     overlay.classList.remove("active");
   }
 
-  // Show registration.
   function showRegister() {
     get("registerForm").style.display = "block";
     get("loginForm").style.display = "none";
   }
 
-  // Show login.
   function showLogin() {
     get("registerForm").style.display = "none";
     get("loginForm").style.display = "block";
   }
 
-  // Display student dashboard.
-  function showDashboard(student) {
-
+  function showDashboard(profile, user) {
     portalForms.style.display = "none";
-
     dashboard.classList.add("active");
 
-    get("welcomeStudent").textContent =
-      "Welcome, " + student.name + "!";
+    const name =
+      profile.full_name ||
+      user.user_metadata?.full_name ||
+      user.email;
 
-    get("studentDetails").textContent =
-      student.university + " · " +
-      student.faculty + " · " +
-      student.department + " · " +
-      student.level;
+    get("welcomeStudent").textContent = "Welcome, " + name + "!";
 
+    get("studentDetails").textContent = [
+      profile.university,
+      profile.faculty,
+      profile.department,
+      profile.academic_level
+    ].filter(Boolean).join(" · ");
   }
 
-  // Open and close controls.
+  async function loadStudentProfile(user) {
+    const { data, error } = await supabaseClient
+      .from("profiles")
+      .select("*")
+      .eq("id", user.id)
+      .single();
+
+    if (error) {
+      console.error("Profile error:", error);
+      alert("Your account is signed in, but your student profile could not be loaded. Please contact support.");
+      return;
+    }
+
+    showDashboard(data, user);
+  }
+
+  async function restoreSession() {
+    const { data, error } = await supabaseClient.auth.getSession();
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    if (data.session) {
+      await loadStudentProfile(data.session.user);
+    }
+  }
+
+  // Open and close portal controls
   get("portalOpen").addEventListener("click", function () {
     openPortal("register");
   });
@@ -1624,119 +1657,132 @@ document.getElementById("year").textContent = new Date().getFullYear();
   get("portalClose").addEventListener("click", closePortal);
 
   get("showLogin").addEventListener("click", showLogin);
-
   get("showRegister").addEventListener("click", showRegister);
 
-  // Close when someone clicks outside the portal box.
   overlay.addEventListener("click", function (event) {
+    if (event.target === overlay) closePortal();
+  });
 
-    if (event.target === overlay) {
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" &&
+        overlay.classList.contains("active")) {
       closePortal();
     }
-
   });
 
-  // Student registration.
-  get("lockiinRegister").addEventListener("submit", function (event) {
-
+  // REAL STUDENT REGISTRATION
+  get("lockiinRegister").addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const password = get("regPassword").value;
+    const button = this.querySelector('button[type="submit"]');
+    button.disabled = true;
+    button.textContent = "Creating account...";
 
-    if (password.length < 8) {
-      alert("Your password must contain at least 8 characters.");
-      return;
+    try {
+      const fullName = get("regName").value.trim();
+      const email = get("regEmail").value.trim().toLowerCase();
+      const password = get("regPassword").value;
+
+      const { data, error } = await supabaseClient.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+          emailRedirectTo:
+            "https://peacesaiki21-glitch.github.io/Lockiin-Academic-Hub/",
+          data: {
+            full_name: fullName,
+            university: get("regUniversity").value,
+            faculty: get("regFaculty").value.trim(),
+            department: get("regDepartment").value.trim(),
+            academic_level: get("regLevel").value
+          }
+        }
+      });
+
+      if (error) throw error;
+
+      if (data.session) {
+        await loadStudentProfile(data.user);
+        alert("Welcome to LOCKIIN! Your account has been created.");
+      } else {
+        alert(
+          "Registration successful! Please check your email and click the confirmation link before logging in."
+        );
+        get("lockiinRegister").reset();
+        showLogin();
+      }
+
+    } catch (error) {
+      alert("Registration failed: " + error.message);
+    } finally {
+      button.disabled = false;
+      button.textContent = "Create student profile";
     }
-
-    demoStudent = {
-
-      name: get("regName").value.trim(),
-
-      email: get("regEmail").value.trim().toLowerCase(),
-
-      university: get("regUniversity").value,
-
-      faculty: get("regFaculty").value.trim(),
-
-      department: get("regDepartment").value.trim(),
-
-      level: get("regLevel").value,
-
-      password: password
-
-    };
-
-    alert("Your demonstration profile has been created!");
-
-    showDashboard(demoStudent);
-
   });
 
-  // Student login.
-  get("lockiinLogin").addEventListener("submit", function (event) {
-
+  // REAL STUDENT LOGIN
+  get("lockiinLogin").addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const email =
-      get("loginEmail").value.trim().toLowerCase();
+    const button = this.querySelector('button[type="submit"]');
+    button.disabled = true;
+    button.textContent = "Logging in...";
 
-    const password =
-      get("loginPassword").value;
+    try {
+      const email = get("loginEmail").value.trim().toLowerCase();
+      const password = get("loginPassword").value;
 
-    if (
-      !demoStudent ||
-      email !== demoStudent.email ||
-      password !== demoStudent.password
-    ) {
+      const { data, error } = await supabaseClient.auth
+        .signInWithPassword({
+          email: email,
+          password: password
+        });
 
-      alert(
-        "No matching demonstration account found. Register first."
-      );
+      if (error) throw error;
 
-      return;
+      await loadStudentProfile(data.user);
 
+    } catch (error) {
+      alert("Login failed: " + error.message);
+    } finally {
+      button.disabled = false;
+      button.textContent = "Log in";
     }
-
-    alert("Demonstration login successful!");
-
-    showDashboard(demoStudent);
-
   });
 
-  // Student logout.
-  get("portalLogout").addEventListener("click", function () {
+  // REAL STUDENT LOGOUT
+  get("portalLogout").addEventListener("click", async function () {
+    const { error } = await supabaseClient.auth.signOut();
 
-    demoStudent = null;
+    if (error) {
+      alert("Logout failed: " + error.message);
+      return;
+    }
 
     get("lockiinRegister").reset();
-
     get("lockiinLogin").reset();
 
     portalForms.style.display = "block";
-
     dashboard.classList.remove("active");
 
     showLogin();
-
     closePortal();
 
+    alert("You have logged out successfully.");
   });
 
-  // Close portal with Escape key.
-  document.addEventListener("keydown", function (event) {
+  // Restore an existing login when the page opens
+  restoreSession();
 
-    if (
-      event.key === "Escape" &&
-      overlay.classList.contains("active")
-    ) {
-
-      closePortal();
-
-    }
-
-  });
+  // Remove the old prototype warning
+  const note = portalForms.querySelector(".portal-note");
+  if (note) {
+    note.textContent =
+      "Your LOCKIIN account is protected by Supabase authentication.";
+  }
 
 })();
 </script>
+
 </body>
 </html>
