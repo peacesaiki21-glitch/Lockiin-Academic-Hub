@@ -7,6 +7,156 @@
 <title>LOCKIIN Academic | Your Academic World, Connected.</title>
 <meta name="description" content="LOCKIIN Academic helps ABSU students discover academic resources, past questions and study materials.">
 
+/* LOCKIIN STUDENT PORTAL */
+
+#lockiin-portal * {
+  box-sizing: border-box;
+}
+
+#lockiin-portal {
+  font-family: Arial, sans-serif;
+  color: #111111;
+}
+
+#lockiin-portal .portal-launch {
+  position: fixed;
+  right: 18px;
+  bottom: 24px;
+  z-index: 9998;
+  background: #1746A2;
+  color: white;
+  border: 0;
+  border-radius: 30px;
+  padding: 15px 22px;
+  font-weight: 700;
+  box-shadow: 0 5px 20px #0003;
+}
+
+#lockiin-portal .portal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.7);
+  padding: 18px;
+  overflow-y: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+#lockiin-portal .portal-overlay.active {
+  display: flex;
+}
+
+#lockiin-portal .portal-box {
+  background: white;
+  width: 100%;
+  max-width: 460px;
+  border-radius: 18px;
+  padding: 26px;
+  position: relative;
+  margin: auto;
+}
+
+#lockiin-portal .portal-close {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  border: 0;
+  background: none;
+  font-size: 28px;
+}
+
+#lockiin-portal h2 {
+  color: #1746A2;
+  margin-bottom: 7px;
+}
+
+#lockiin-portal .portal-sub {
+  color: #687386;
+  margin-bottom: 20px;
+}
+
+#lockiin-portal label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 13px 0 6px;
+}
+
+#lockiin-portal input,
+#lockiin-portal select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #E5E9F1;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+}
+
+#lockiin-portal .portal-submit {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: #1746A2;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#lockiin-portal .portal-switch {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+#lockiin-portal .portal-switch button {
+  color: #1746A2;
+  background: none;
+  border: 0;
+  font-weight: bold;
+}
+
+#lockiin-portal .portal-note {
+  background: #FFF8DF;
+  padding: 11px;
+  border-radius: 8px;
+  color: #725400;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+#lockiin-portal .portal-dashboard {
+  display: none;
+}
+
+#lockiin-portal .portal-dashboard.active {
+  display: block;
+}
+
+#lockiin-portal .portal-card {
+  background: #F5F7FC;
+  padding: 17px;
+  border-radius: 10px;
+  margin-top: 18px;
+}
+
+#lockiin-portal .portal-logout {
+  margin-top: 18px;
+  padding: 11px 18px;
+  border: 0;
+  background: #111111;
+  color: white;
+  border-radius: 7px;
+}
+
+@media(max-width:480px) {
+  #lockiin-portal .portal-box {
+    padding: 22px 17px;
+  }
+}
+
 <style>
 :root {
   --blue: #1746A2;
