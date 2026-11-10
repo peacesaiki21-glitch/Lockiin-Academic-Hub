@@ -1,0 +1,1254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1746A2">
+<title>LOCKIIN Academic | Your Academic World, Connected.</title>
+<meta name="description" content="LOCKIIN Academic helps ABSU students discover academic resources, past questions and study materials.">
+
+<style>
+:root {
+  --blue: #1746A2;
+  --dark-blue: #103579;
+  --black: #111111;
+  --yellow: #FFC928;
+  --white: #FFFFFF;
+  --light: #F5F7FC;
+  --gray: #687386;
+  --border: #E5E9F1;
+  --radius: 14px;
+  --shadow: 0 10px 35px rgba(17,17,17,.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: 88%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HEADER */
+
+header {
+  height: 78px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 88%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: 950;
+  letter-spacing: -1.5px;
+  color: var(--blue);
+}
+
+.logo span { color: var(--black); }
+
+.logo-mark {
+  display: inline-flex;
+  background: var(--yellow);
+  color: var(--black);
+  width: 29px;
+  height: 29px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  font-size: 17px;
+  margin-right: 5px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 29px;
+}
+
+nav a {
+  font-size: 13px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+nav a:hover { color: var(--blue); }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-btn {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 10px 17px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.signup-btn {
+  border: none;
+  background: var(--blue);
+  color: white;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 27px;
+  color: var(--black);
+}
+
+/* HERO */
+
+.hero {
+  background: var(--light);
+  padding: 85px 0;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  background: #E6EEFF;
+  color: var(--blue);
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .8px;
+  margin-bottom: 23px;
+}
+
+.hero h1 {
+  font-size: clamp(43px, 5.5vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -3px;
+  max-width: 650px;
+}
+
+.hero h1 span { color: var(--blue); }
+
+.hero-description {
+  max-width: 490px;
+  color: var(--gray);
+  font-size: 16px;
+  margin: 23px 0 30px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.primary-btn {
+  background: var(--blue);
+  color: white;
+  padding: 14px 22px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 800;
+  display: inline-block;
+  transition: .2s;
+}
+
+.primary-btn:hover {
+  background: var(--dark-blue);
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 13px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.hero-visual {
+  background: var(--blue);
+  border-radius: 22px;
+  padding: 30px;
+  min-height: 340px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(23,70,162,.2);
+}
+
+.hero-visual:after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: var(--yellow);
+  border-radius: 50%;
+  opacity: .12;
+  right: -75px;
+  top: -70px;
+}
+
+.hero-visual .visual-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  color: #DCE7FF;
+}
+
+.hero-visual .visual-letter {
+  font-size: 110px;
+  font-weight: 950;
+  color: var(--yellow);
+  line-height: 1.3;
+  margin-top: 5px;
+}
+
+.hero-visual h2 {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.hero-visual p {
+  color: #E1E9FA;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.visual-bottom {
+  display: flex;
+  gap: 9px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.visual-bottom span {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 11px;
+}
+
+/* STATS */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.stat strong {
+  font-size: 22px;
+  display: block;
+  color: var(--blue);
+}
+
+.stat p {
+  color: var(--gray);
+  font-size: 12px;
+}
+
+/* GENERAL SECTIONS */
+
+section { padding: 78px 0; }
+
+.section-top { margin-bottom: 30px; }
+
+.section-tag {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.section-top h2 {
+  font-size: clamp(27px,3.5vw,36px);
+  letter-spacing: -1px;
+  margin: 8px 0;
+}
+
+.section-top p {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+/* MARKETPLACE */
+
+.marketplace { background: white; }
+
+.search-panel {
+  background: var(--light);
+  border: 1px solid var(--border);
+  padding: 23px;
+  border-radius: var(--radius);
+  margin-bottom: 28px;
+}
+
+.search-row {
+  display: flex;
+  gap: 10px;
+}
+
+.search-row input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  padding: 14px;
+  outline: none;
+}
+
+.search-row input:focus {
+  border-color: var(--blue);
+}
+
+.search-row button {
+  background: var(--blue);
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 22px;
+  font-weight: 800;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 17px;
+}
+
+.filter {
+  padding: 9px 15px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.filter.active {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+.product-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: white;
+  transition: .25s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.product-image {
+  height: 160px;
+  background: #EDF2FC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 54px;
+  position: relative;
+}
+
+.product-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--yellow);
+  color: var(--black);
+  padding: 5px 9px;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.product-info { padding: 19px; }
+
+.product-category {
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .7px;
+}
+
+.product-info h3 {
+  font-size: 17px;
+  margin: 7px 0;
+}
+
+.product-description {
+  color: var(--gray);
+  font-size: 12px;
+  min-height: 38px;
+}
+
+.product-bottom {
+  border-top: 1px solid var(--border);
+  margin-top: 17px;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.view-btn {
+  border: none;
+  background: var(--blue);
+  color: white;
+  border-radius: 7px;
+  padding: 9px 12px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.no-results {
+  display: none;
+  grid-column: 1/-1;
+  padding: 35px;
+  text-align: center;
+  color: var(--gray);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+}
+
+/* FEATURES */
+
+.features { background: var(--light); }
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+}
+
+.feature-icon {
+  background: #E8EEFA;
+  color: var(--blue);
+  width: 48px;
+  height: 48px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-size: 23px;
+  margin-bottom: 17px;
+}
+
+.feature-card h3 { font-size: 17px; margin-bottom: 9px; }
+
+.feature-card p {
+  font-size: 13px;
+  color: var(--gray);
+}
+
+/* ABOUT / CTA */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.about-panel {
+  background: var(--blue);
+  color: white;
+  padding: 35px;
+  border-radius: 18px;
+}
+
+.about-panel h3 {
+  font-size: 28px;
+  line-height: 1.3;
+}
+
+.about-panel p {
+  margin-top: 13px;
+  color: #E3EAFA;
+  font-size: 14px;
+}
+
+.about-text p {
+  color: var(--gray);
+  margin-top: 13px;
+  font-size: 14px;
+}
+
+.cta {
+  background: var(--black);
+  color: white;
+  text-align: center;
+  padding: 55px 20px;
+  border-radius: 18px;
+  margin: 0 0 75px;
+}
+
+.cta h2 { font-size: 32px; }
+
+.cta p {
+  color: #C9CED8;
+  margin: 12px auto 23px;
+  font-size: 14px;
+}
+
+.cta a {
+  background: var(--yellow);
+  color: var(--black);
+  padding: 13px 22px;
+  display: inline-block;
+  border-radius: 8px;
+  font-weight: 900;
+}
+
+/* FOOTER */
+
+footer {
+  background: var(--blue);
+  color: white;
+  padding: 48px 0 22px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 35px;
+}
+
+.footer-logo {
+  font-size: 25px;
+  font-weight: 950;
+}
+
+.footer-grid p {
+  color: #DCE5F7;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.footer-grid h4 { margin-bottom: 13px; }
+
+.footer-grid a {
+  display: block;
+  color: #DCE5F7;
+  font-size: 13px;
+  margin-bottom: 9px;
+}
+
+.footer-grid a:hover { color: var(--yellow); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.2);
+  margin-top: 35px;
+  padding-top: 20px;
+  color: #DCE5F7;
+  font-size: 11px;
+}
+
+/* MODAL */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal.show { display: flex; }
+
+.modal-box {
+  background: white;
+  width: 100%;
+  max-width: 430px;
+  border-radius: 15px;
+  padding: 28px;
+  position: relative;
+}
+
+.modal-box h2 { color: var(--blue); margin-bottom: 10px; }
+
+.modal-box p {
+  color: var(--gray);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.close-modal {
+  position: absolute;
+  right: 18px;
+  top: 13px;
+  background: none;
+  border: none;
+  font-size: 25px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+  nav {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    padding: 25px 6%;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  nav.open { display: flex; }
+
+  .menu-btn {
+    display: block;
+    border: none;
+    background: none;
+    font-size: 27px;
+  }
+
+  .header-actions { display: none; }
+
+  .hero-grid { grid-template-columns: 1fr; }
+
+  .hero-visual { min-height: 280px; }
+
+  .product-grid,.feature-grid { grid-template-columns: repeat(2,1fr); }
+
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+@media(max-width:550px) {
+  .container,.header-inner { width: 90%; }
+
+  .hero { padding: 60px 0; }
+
+  .hero h1 {
+    font-size: 44px;
+    letter-spacing: -2px;
+  }
+
+  section { padding: 60px 0; }
+
+  .stats { grid-template-columns: repeat(3,1fr); }
+
+  .stat strong { font-size: 17px; }
+
+  .stat p { font-size: 10px; }
+
+  .product-grid,.feature-grid { grid-template-columns: 1fr; }
+
+  .search-row { flex-direction: column; }
+
+  .search-row button { padding: 12px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+
+  .footer-grid > div:first-child { grid-column: 1/-1; }
+
+  .cta h2 { font-size: 26px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="header-inner">
+
+    <a href="#home" class="logo">
+      <span class="logo-mark">L</span>LOCKIIN<span>.</span>
+    </a>
+
+    <nav id="navigation">
+      <a href="#home">Home</a>
+      <a href="#marketplace">Marketplace</a>
+      <a href="#features">Features</a>
+      <a href="#about">About us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="login-btn" onclick="showAccount()">Log in</button>
+      <button class="signup-btn" onclick="showAccount()">Get started</button>
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div>
+      <span class="eyebrow">WELCOME TO LOCKIIN ACADEMIC</span>
+
+      <h1>
+        Your academic world.
+        <span>Connected.</span>
+      </h1>
+
+      <p class="hero-description">
+        Discover academic resources, explore past questions
+        and prepare for your examinations with a smarter
+        way to access learning materials.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#marketplace" class="primary-btn">
+          Explore marketplace →
+        </a>
+
+        <a href="#about" class="secondary-btn">
+          Discover LOCKIIN
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="visual-label">YOUR ACADEMIC COMPANION</div>
+
+      <div class="visual-letter">L.</div>
+
+      <h2>Study smarter.<br>Stay ahead.</h2>
+
+      <p>Everything you need for a better academic journey.</p>
+
+      <div class="visual-bottom">
+        <span>Past questions</span>
+        <span>Study materials</span>
+        <span>Student resources</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+
+<div class="container">
+  <div class="stats">
+
+    <div class="stat">
+      <strong>ABSU</strong>
+      <p>Our starting community</p>
+    </div>
+
+    <div class="stat">
+      <strong>24/7</strong>
+      <p>Explore anytime</p>
+    </div>
+
+    <div class="stat">
+      <strong>One place</strong>
+      <p>Your academic resources</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- MARKETPLACE -->
+
+<section class="marketplace" id="marketplace">
+  <div class="container">
+
+    <div class="section-top">
+      <span class="section-tag">THE LOCKIIN MARKETPLACE</span>
+      <h2>Find your study materials.</h2>
+      <p>Explore academic resources organised for ABSU students.</p>
+    </div>
+
+    <div class="search-panel">
+
+      <div class="search-row">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search courses, subjects or materials..."
+          aria-label="Search study materials"
+        >
+
+        <button onclick="filterProducts()">Search</button>
+      </div>
+
+      <div class="filters">
+        <button class="filter active" data-filter="all">All materials</button>
+        <button class="filter" data-filter="science">Science</button>
+        <button class="filter" data-filter="arts">Arts</button>
+        <button class="filter" data-filter="management">Management</button>
+      </div>
+
+    </div>
+
+    <div class="product-grid" id="productGrid">
+
+      <article class="product-card" data-category="science">
+        <div class="product-image">
+          <span class="product-label">SAMPLE LISTING</span>
+          📘
+        </div>
+        <div class="product-info">
+          <span class="product-category">SCIENCE</span>
+          <h3>Biology Past Questions</h3>
+          <p class="product-description">
+            Sample academic resource for biology students.
+          </p>
+          <div class="product-bottom">
+            <span class="product-price">₦1,500</span>
+            <button class="view-btn" onclick="showProduct('Biology Past Questions','Science','₦1,500')">View details</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="science">
+        <div class="product-image">
+          <span class="product-label">SAMPLE LISTING</span>
+          🧪
+        </div>
+        <div class="product-info">
+          <span class="product-category">SCIENCE</span>
+          <h3>Chemistry Past Questions</h3>
+          <p class="product-description">
+            Sample chemistry examination resource.
+          </p>
+          <div class="product-bottom">
+            <span class="product-price">₦1,500</span>
+            <button class="view-btn" onclick="showProduct('Chemistry Past Questions','Science','₦1,500')">View details</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="science">
+        <div class="product-image">
+          <span class="product-label">SAMPLE LISTING</span>
+          💻
+        </div>
+        <div class="product-info">
+          <span class="product-category">SCIENCE</span>
+          <h3>Introduction to Computing</h3>
+          <p class="product-description">
+            Sample computing study material.
+          </p>
+          <div class="product-bottom">
+            <span class="product-price">₦1,000</span>
+            <button class="view-btn" onclick="showProduct('Introduction to Computing','Science','₦1,000')">View details</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="arts">
+        <div class="product-image">
+          <span class="product-label">SAMPLE LISTING</span>
+          📚
+        </div>
+        <div class="product-info">
+          <span class="product-category">ARTS</span>
+          <h3>Use of English</h3>
+          <p class="product-description">
+            Sample English language academic resource.
+          </p>
+          <div class="product-bottom">
+            <span class="product-price">₦1,000</span>
+            <button class="view-btn" onclick="showProduct('Use of English','Arts','₦1,000')">View details</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="management">
+        <div class="product-image">
+          <span class="product-label">SAMPLE LISTING</span>
+          📊
+        </div>
+        <div class="product-info">
+          <span class="product-category">MANAGEMENT</span>
+          <h3>Principles of Economics</h3>
+          <p class="product-description">
+            Sample economics academic resource.
+          </p>
+          <div class="product-bottom">
+            <span class="product-price">₦1,500</span>
+            <button class="view-btn" onclick="showProduct('Principles of Economics','Management','₦1,500')">View details</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="management">
+        <div class="product-image">
+          <span class="product-label">SAMPLE LISTING</span>
+          📈
+        </div>
+        <div class="product-info">
+          <span class="product-category">MANAGEMENT</span>
+          <h3>Business Administration</h3>
+          <p class="product-description">
+            Sample business study material.
+          </p>
+          <div class="product-bottom">
+            <span class="product-price">₦1,500</span>
+            <button class="view-btn" onclick="showProduct('Business Administration','Management','₦1,500')">View details</button>
+          </div>
+        </div>
+      </article>
+
+      <div class="no-results" id="noResults">
+        <h3>No materials found.</h3>
+        <p>Try another search or category.</p>
+      </div>
+
+    </div>
+
+    <p style="font-size:11px;color:#687386;margin-top:20px">
+      Note: These are demonstration listings, not verified or purchasable materials yet.
+    </p>
+
+  </div>
+</section>
+
+<!-- FEATURES -->
+
+<section class="features" id="features">
+  <div class="container">
+
+    <div class="section-top">
+      <span class="section-tag">WHY LOCKIIN?</span>
+      <h2>Everything in one place.</h2>
+      <p>Designed to make accessing academic resources easier.</p>
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Academic resources</h3>
+        <p>Discover past questions and study materials organised by academic categories.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3>Easy discovery</h3>
+        <p>Find relevant academic resources without searching endlessly.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">👨‍🎓</div>
+        <h3>Student experience</h3>
+        <p>A platform designed around the needs of university students.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📂</div>
+        <h3>Personal library</h3>
+        <p>Our planned student library will help organise purchased materials.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>AI learning assistant</h3>
+        <p>Future AI tools will help students explore and understand learning materials.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure access</h3>
+        <p>We're planning protected access to purchased academic resources.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="container about-grid">
+
+    <div class="about-text">
+      <span class="section-tag">ABOUT LOCKIIN</span>
+      <h2 style="font-size:34px;line-height:1.2;margin-top:12px">
+        More than a marketplace.
+        A better academic experience.
+      </h2>
+
+      <p>
+        LOCKIIN Academic is an education-focused platform
+        starting with Abia State University students.
+      </p>
+
+      <p>
+        Our vision is to make academic resources easier
+        to discover, access and organise, while building
+        a platform that can eventually serve students
+        across multiple universities.
+      </p>
+    </div>
+
+    <div class="about-panel">
+      <h3>Your academic journey deserves a better system.</h3>
+      <p>
+        Discover. Learn. Prepare. Progress.
+      </p>
+      <p style="color:#FFC928;font-weight:900;margin-top:25px">
+        LOCKIIN ACADEMIC.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+
+<div class="container" id="contact">
+  <div class="cta">
+    <h2>Your next academic step starts here.</h2>
+    <p>Explore the LOCKIIN marketplace and discover a smarter way to prepare.</p>
+    <a href="#marketplace">Explore materials →</a>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">LOCKIIN.</div>
+        <p>Your Academic World, Connected.</p>
+        <p>Building a better academic experience, starting with ABSU.</p>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <a href="#home">Home</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#features">Features</a>
+      </div>
+
+      <div>
+        <h4>Platform</h4>
+        <a href="#about">About LOCKIIN</a>
+        <a href="#contact">Contact</a>
+        <a href="#marketplace">Academic resources</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> LOCKIIN Academic. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="close-modal" onclick="closeModal()" aria-label="Close">×</button>
+    <span class="section-tag">LOCKIIN MARKETPLACE</span>
+    <h2 id="modalTitle">Material details</h2>
+    <p id="modalDescription"></p>
+    <p id="modalPrice" style="font-weight:900;color:#1746A2"></p>
+    <p style="font-size:12px">
+      This is a demonstration listing. Verified materials and purchasing
+      will be enabled after the platform's backend and payment system
+      are connected.
+    </p>
+    <button class="primary-btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<!-- ACCOUNT MODAL -->
+
+<div class="modal" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+  <div class="modal-box">
+    <button class="close-modal" onclick="closeAccount()" aria-label="Close">×</button>
+    <h2 id="accountTitle">Student accounts</h2>
+    <p>
+      Student registration, login and personal libraries
+      are part of our next development stage.
+    </p>
+    <button class="primary-btn" onclick="closeAccount()">Continue exploring</button>
+  </div>
+</div>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const cards = Array.from(document.querySelectorAll(".product-card"));
+const filters = document.querySelectorAll(".filter");
+const noResults = document.getElementById("noResults");
+
+let activeCategory = "all";
+
+function toggleMenu() {
+  document.getElementById("navigation").classList.toggle("open");
+}
+
+document.querySelectorAll("#navigation a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navigation").classList.remove("open");
+  });
+});
+
+function filterProducts() {
+  const query = searchInput.value.toLowerCase().trim();
+  let visible = 0;
+
+  cards.forEach(card => {
+    const category = card.dataset.category;
+    const text = card.innerText.toLowerCase();
+
+    const matchesCategory =
+      activeCategory === "all" || category === activeCategory;
+
+    const matchesSearch = text.includes(query);
+    const show = matchesCategory && matchesSearch;
+
+    card.style.display = show ? "block" : "none";
+
+    if (show) visible++;
+  });
+
+  noResults.style.display = visible === 0 ? "block" : "none";
+}
+
+filters.forEach(button => {
+  button.addEventListener("click", () => {
+    filters.forEach(item => item.classList.remove("active"));
+
+    button.classList.add("active");
+    activeCategory = button.dataset.filter;
+
+    filterProducts();
+  });
+});
+
+searchInput.addEventListener("input", filterProducts);
+
+function showProduct(name, category, price) {
+  document.getElementById("modalTitle").textContent = name;
+  document.getElementById("modalDescription").textContent =
+    "Category: " + category + ". This is a demonstration listing on LOCKIIN Academic.";
+  document.getElementById("modalPrice").textContent =
+    "Indicative sample price: " + price;
+
+  document.getElementById("productModal").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("productModal").classList.remove("show");
+}
+
+function showAccount() {
+  document.getElementById("accountModal").classList.add("show");
+}
+
+function closeAccount() {
+  document.getElementById("accountModal").classList.remove("show");
+}
+
+document.querySelectorAll(".modal").forEach(modal => {
+  modal.addEventListener("click", event => {
+    if (event.target === modal) {
+      modal.classList.remove("show");
+    }
+  });
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    document.querySelectorAll(".modal").forEach(modal => {
+      modal.classList.remove("show");
+    });
+  }
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
