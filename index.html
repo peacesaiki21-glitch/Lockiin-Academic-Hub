@@ -1704,6 +1704,113 @@ document.addEventListener("keydown", event => {
 document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
+/* LOCKIIN STUDENT PORTAL FUNCTIONALITY */
+
+let lockiinDemoStudent = null;
+
+function openPortal(page) {
+  const overlay = document.getElementById("portalOverlay");
+  if (!overlay) return;
+
+  overlay.classList.add("active");
+
+  if (page === "login") {
+    showPortalLogin();
+  } else {
+    showPortalRegister();
+  }
+}
+
+function closePortal() {
+  document.getElementById("portalOverlay").classList.remove("active");
+}
+
+function showPortalLogin() {
+  document.getElementById("registerForm").style.display = "none";
+  document.getElementById("loginForm").style.display = "block";
+}
+
+function showPortalRegister() {
+  document.getElementById("registerForm").style.display = "block";
+  document.getElementById("loginForm").style.display = "none";
+}
+
+function displayStudentDashboard(student) {
+  document.getElementById("portalForms").style.display = "none";
+  document.getElementById("portalDashboard").classList.add("active");
+
+  document.getElementById("welcomeStudent").textContent =
+    "Welcome, " + student.name + "!";
+
+  document.getElementById("studentDetails").textContent =
+    student.university + " · " +
+    student.faculty + " · " +
+    student.department + " · " +
+    student.level;
+}
+
+document.getElementById("lockiinRegister").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const password = document.getElementById("regPassword").value;
+
+  if (password.length < 8) {
+    alert("Password must contain at least 8 characters.");
+    return;
+  }
+
+  lockiinDemoStudent = {
+    name: document.getElementById("regName").value.trim(),
+    email: document.getElementById("regEmail").value.trim().toLowerCase(),
+    university: document.getElementById("regUniversity").value,
+    faculty: document.getElementById("regFaculty").value.trim(),
+    department: document.getElementById("regDepartment").value.trim(),
+    level: document.getElementById("regLevel").value,
+    password: password
+  };
+
+  alert("Your demonstration profile has been created!");
+
+  displayStudentDashboard(lockiinDemoStudent);
+});
+
+document.getElementById("lockiinLogin").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+  const password = document.getElementById("loginPassword").value;
+
+  if (
+    !lockiinDemoStudent ||
+    email !== lockiinDemoStudent.email ||
+    password !== lockiinDemoStudent.password
+  ) {
+    alert("No matching demonstration account found. Register first.");
+    return;
+  }
+
+  displayStudentDashboard(lockiinDemoStudent);
+});
+
+function logoutPortal() {
+  lockiinDemoStudent = null;
+
+  document.getElementById("portalForms").style.display = "block";
+  document.getElementById("portalDashboard").classList.remove("active");
+
+  document.getElementById("lockiinRegister").reset();
+  document.getElementById("lockiinLogin").reset();
+
+  showPortalLogin();
+  closePortal();
+}
+
+document.getElementById("portalOverlay").addEventListener("click", function(event) {
+  if (event.target === this) {
+    closePortal();
+  }
+});
+
 <!-- LOCKIIN STUDENT PORTAL -->
 
 <div id="lockiin-portal">
