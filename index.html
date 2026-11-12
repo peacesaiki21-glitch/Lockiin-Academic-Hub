@@ -1568,7 +1568,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
     SUPABASE_URL,
     SUPABASE_KEY
   );
-
+window.supabaseClient = supabaseClient;
   function openPortal(page) {
     overlay.classList.add("active");
     portalForms.style.display = "block";
