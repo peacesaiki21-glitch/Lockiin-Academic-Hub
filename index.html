@@ -1786,7 +1786,8 @@ document.getElementById("year").textContent = new Date().getFullYear();
     SUPABASE_KEY
   );
 window.supabaseClient = supabaseClient;
- function openPortal(page) {
+
+function openPortal(page) {
     overlay.classList.add("active");
     overlay.classList.remove("dashboard-mode");
 
@@ -1799,6 +1800,9 @@ window.supabaseClient = supabaseClient;
       showRegister();
     }
 }
+
+window.openPortal = openPortal;
+
   window.openPortal = openPortal;
 
   function closePortal() {
