@@ -1559,7 +1559,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
       <div class="topbar-right">
         <span class="online-indicator"></span>
         <span>Student portal</span>
-        <button class="mobile-dashboard-logout" id="mobileDashboardLogout" type="button">Log out</button>
+       <button class="mobile-dashboard-logout" id="mobileDashboardLogout" type="button" onclick="document.getElementById('portalLogout').click()">Log out</button>
       </div>
     </header>
 
@@ -1788,8 +1788,10 @@ document.getElementById("year").textContent = new Date().getFullYear();
 window.supabaseClient = supabaseClient;
   function openPortal(page) {
     overlay.classList.add("active");
+    overlay.classList.remove("dashboard-mode");
     portalForms.style.display = "block";
     dashboard.classList.remove("active");
+    overlay.classList.remove("dashboard-mode");
 
     if (page === "login") {
       showLogin();
