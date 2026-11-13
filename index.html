@@ -2747,5 +2747,198 @@ window.switchDashboardPage = switchDashboardPage;
 }
 </style>
 
+/* LOCKIIN PREMIUM OVERVIEW DESIGN */
+
+#lockiin-portal .overview-hero {
+  display: grid;
+  grid-template-columns: 1.4fr .8fr;
+  gap: 22px;
+  margin: 28px 0;
+}
+
+#lockiin-portal .overview-hero-copy {
+  padding: 34px;
+  border-radius: 18px;
+  background: linear-gradient(120deg,#103579,#1746A2);
+  color: white;
+}
+
+#lockiin-portal .overview-kicker,
+#lockiin-portal .overview-section-title span {
+  color: #FFC928;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+}
+
+#lockiin-portal .overview-hero-copy h1 {
+  color: white;
+  font-size: clamp(27px,3vw,38px);
+  line-height: 1.25;
+  margin: 13px 0;
+}
+
+#lockiin-portal .overview-hero-copy h1 span {
+  color: #FFC928;
+}
+
+#lockiin-portal .overview-hero-copy p {
+  color: #E1E9FA;
+  font-size: 13px;
+  max-width: 440px;
+  line-height: 1.8;
+}
+
+#lockiin-portal .overview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+#lockiin-portal .overview-actions button {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 15px;
+  background: #FFC928;
+  color: #111;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+#lockiin-portal .overview-actions button + button {
+  background: #ffffff18;
+  border: 1px solid #ffffff50;
+  color: white;
+}
+
+#lockiin-portal .overview-hero-card {
+  padding: 27px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid #E2E7F0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#lockiin-portal .overview-hero-mark {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #FFC928;
+  color: #111;
+  font-size: 24px;
+  font-weight: 950;
+  margin-bottom: 22px;
+}
+
+#lockiin-portal .overview-hero-card > span {
+  color: #1746A2;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+#lockiin-portal .overview-hero-card h2 {
+  font-size: 23px;
+  line-height: 1.3;
+  margin: 10px 0;
+}
+
+#lockiin-portal .overview-hero-card p {
+  color: #687386;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#lockiin-portal .overview-section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 34px 0 18px;
+}
+
+#lockiin-portal .overview-section-title span {
+  color: #1746A2;
+}
+
+#lockiin-portal .overview-section-title h2 {
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+#lockiin-portal .overview-section-title p {
+  color: #687386;
+  font-size: 12px;
+}
+
+#lockiin-portal .overview-section-title button,
+#lockiin-portal .overview-bottom-note button {
+  border: 0;
+  background: #1746A2;
+  color: white;
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+#lockiin-portal .overview-bottom-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 26px;
+  padding: 23px;
+  border: 1px solid #E2E7F0;
+  border-radius: 14px;
+  background: white;
+}
+
+#lockiin-portal .overview-bottom-note span {
+  color: #1746A2;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+#lockiin-portal .overview-bottom-note h3 {
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+#lockiin-portal .overview-bottom-note p {
+  color: #687386;
+  font-size: 12px;
+}
+
+@media(max-width:750px) {
+  #lockiin-portal .overview-hero {
+    grid-template-columns: 1fr;
+  }
+
+  #lockiin-portal .overview-hero-copy {
+    padding: 25px 20px;
+  }
+
+  #lockiin-portal .overview-hero-card {
+    padding: 22px;
+  }
+
+  #lockiin-portal .overview-section-title {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  #lockiin-portal .overview-bottom-note {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
 </body>
 </html>
