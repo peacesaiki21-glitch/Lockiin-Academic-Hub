@@ -2179,21 +2179,43 @@ get("profilePhotoInput").addEventListener("change", async function () {
 }
 
 window.switchDashboardPage = switchDashboardPage;
-   async function loadStudentProfile(user) {
+ 
+async function loadStudentProfile(user) {
+  try {
     const { data, error } = await supabaseClient
       .from("profiles")
       .select("*")
       .eq("id", user.id)
-      .single();
+      .maybeSingle();
 
     if (error) {
-      console.error("Profile error:", error);
-      alert("Your account is signed in, but your student profile could not be loaded. Please contact support.");
-      return;
+      console.warn(
+        "Student profile could not be retrieved:",
+        error.message
+      );
     }
 
-    showDashboard(data, user);
+    const metadata = user.user_metadata || {};
+
+    const profile = data || {
+      full_name: metadata.full_name || "",
+      university: metadata.university || "",
+      faculty: metadata.faculty || "",
+      department: metadata.department || "",
+      academic_level: metadata.academic_level || ""
+    };
+
+    showDashboard(profile, user);
+
+  } catch (error) {
+    console.error("Dashboard loading error:", error);
+
+    alert(
+      "Your account is authenticated, but your dashboard could not load. Please refresh and try again."
+    );
   }
+}
+
 
   async function restoreSession() {
     const { data, error } = await supabaseClient.auth.getSession();
