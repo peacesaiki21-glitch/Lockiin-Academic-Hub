@@ -1786,22 +1786,19 @@ document.getElementById("year").textContent = new Date().getFullYear();
     SUPABASE_KEY
   );
 window.supabaseClient = supabaseClient;
-  function openPortal(page) {
+ function openPortal(page) {
     overlay.classList.add("active");
     overlay.classList.remove("dashboard-mode");
+
     portalForms.style.display = "block";
     dashboard.classList.remove("active");
-    overlay.classList.remove("dashboard-mode");
 
     if (page === "login") {
       showLogin();
     } else {
       showRegister();
     }
-
-    restoreSession();
-  }
-
+}
   window.openPortal = openPortal;
 
   function closePortal() {
@@ -1835,7 +1832,6 @@ function showDashboard(profile, user) {
   const email = user.email || "Not provided";
   const initial = name.trim().charAt(0).toUpperCase() || "S";
 
-  get("welcomeStudent").textContent = "Welcome, " + name + "!";
   get("overviewStudentName").textContent = name;
   get("sidebarStudentName").textContent = name;
 
