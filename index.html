@@ -2170,7 +2170,6 @@ window.switchDashboardPage = switchDashboardPage;
 
 async function loadStudentProfile(user) {
   try {
-    // Retrieve the student's profile without requiring exactly one row.
     const { data, error } = await supabaseClient
       .from("profiles")
       .select("*")
@@ -2178,34 +2177,25 @@ async function loadStudentProfile(user) {
       .maybeSingle();
 
     if (error) {
-      console.error("Profile lookup issue:", error.message);
+      console.error("Profile lookup:", error.message);
     }
 
-    // Use Supabase account metadata if no profile row is available.
     const metadata = user.user_metadata || {};
 
     const profile = {
       ...(data || {}),
-      full_name:
-        data?.full_name || metadata.full_name || user.email || "Student",
-      university:
-        data?.university || metadata.university || "Not provided",
-      faculty:
-        data?.faculty || metadata.faculty || "Not provided",
-      department:
-        data?.department || metadata.department || "Not provided",
-      academic_level:
-        data?.academic_level || metadata.academic_level || "Not provided"
+      full_name: data?.full_name || metadata.full_name || user.email || "Student",
+      university: data?.university || metadata.university || "Not provided",
+      faculty: data?.faculty || metadata.faculty || "Not provided",
+      department: data?.department || metadata.department || "Not provided",
+      academic_level: data?.academic_level || metadata.academic_level || "Not provided"
     };
 
     showDashboard(profile, user);
 
   } catch (error) {
-    console.error("LOCKIIN dashboard error:", error);
-
-    alert(
-      "Your login was successful, but your dashboard could not load. Please contact support."
-    );
+    console.error("Dashboard loading error:", error);
+    alert("Your account could not open the dashboard. Please refresh and try again.");
   }
 }
 
