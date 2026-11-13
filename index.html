@@ -1919,6 +1919,21 @@ window.openPortal = openPortal;
     get("registerForm").style.display = "none";
     get("loginForm").style.display = "block";
   }
+  
+function setProfileAvatar(element, initial, avatarUrl) {
+  if (!element) return;
+
+  element.classList.remove("avatar-has-image");
+  element.style.backgroundImage = "";
+  element.textContent = initial;
+
+  if (avatarUrl) {
+    element.textContent = "";
+    element.style.backgroundImage = `url("${avatarUrl}")`;
+    element.classList.add("avatar-has-image");
+  }
+}
+
 function showDashboard(profile, user) {
   portalForms.style.display = "none";
   dashboard.classList.add("active");
