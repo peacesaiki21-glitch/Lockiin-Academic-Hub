@@ -6,206 +6,65 @@
 <meta name="theme-color" content="#1746A2">
 <title>LOCKIIN Academic Hub | Your Academic World, Connected.</title>
 <meta name="description" content="LOCKIIN Academic helps ABSU students discover academic resources, past questions and study materials.">
-
-/* ==========================================
-   LOCKIIN PREMIUM AFRICAN VISUAL UPDATE
-   Brand: Royal Blue, Yellow, Black and White
-========================================== */
-
-/* Main hero photographic background */
-.hero {
-  background:
-    radial-gradient(circle at top right, rgba(255,201,40,.13), transparent 35%),
-    #F5F7FC;
-}
+/* LOCKIIN PREMIUM AFRICAN VISUAL UPDATE */
 
 .hero-visual {
-  min-height: 440px;
   background:
-    linear-gradient(
-      180deg,
-      rgba(7,20,48,.05) 10%,
-      rgba(7,20,48,.88) 100%
-    ),
+    linear-gradient(0deg, rgba(7,20,48,.88), rgba(7,20,48,.08)),
     url("https://studentbrief.com.ng/public/images/hero-students.webp?v=1786435859")
-    center 42% / cover no-repeat;
+    center / cover no-repeat !important;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 32px;
-  border: 3px solid rgba(255,255,255,.7);
-  box-shadow: 0 25px 65px rgba(17,17,17,.18);
-}
-
-.hero-visual:after {
-  display: none;
 }
 
 .hero-visual .visual-letter {
   display: none;
 }
 
-.hero-visual .visual-label {
-  display: inline-block;
-  width: fit-content;
-  background: rgba(255,201,40,.95);
-  color: #111111;
-  padding: 9px 13px;
-  border-radius: 6px;
-  margin-bottom: 15px;
-  font-weight: 900;
-}
-
-.hero-visual h2 {
-  font-size: clamp(30px, 4vw, 43px);
-  color: #FFFFFF;
-  text-shadow: 0 3px 15px rgba(0,0,0,.3);
-}
-
-.hero-visual p {
-  color: #FFFFFF;
-  font-size: 15px;
-  max-width: 330px;
-}
-
-.visual-bottom span {
-  background: rgba(255,255,255,.16);
-  border: 1px solid rgba(255,255,255,.35);
-  color: #FFFFFF;
-  backdrop-filter: blur(8px);
-}
-
-/* Marketplace photographic thumbnails */
 .product-image {
-  height: 190px;
-  font-size: 0;
   background-size: cover;
   background-position: center;
-  position: relative;
+  font-size: 0;
 }
 
-.product-image .product-label {
-  z-index: 2;
+.product-grid .product-card:nth-child(1) .product-image {
+  background-image: url("https://fuhsatt.edu.ng/assets/img/myAssets/openart-image_CSEOfZ61_1765912928816_raw.jpg");
 }
 
-/* Biology */
-.product-grid > .product-card:nth-of-type(1) .product-image {
-  background-image:
-    linear-gradient(0deg,rgba(8,20,40,.18),transparent),
-    url("https://fuhsatt.edu.ng/assets/img/myAssets/openart-image_CSEOfZ61_1765912928816_raw.jpg");
+.product-grid .product-card:nth-child(2) .product-image {
+  background-image: url("https://claretianuniversity.edu.ng/img/ijmb-library-student-img.jpg");
 }
 
-/* Chemistry */
-.product-grid > .product-card:nth-of-type(2) .product-image {
-  background-image:
-    linear-gradient(0deg,rgba(8,20,40,.18),transparent),
-    url("https://claretianuniversity.edu.ng/img/ijmb-library-student-img.jpg");
+.product-grid .product-card:nth-child(3) .product-image {
+  background-image: url("https://writers.ng/wp-content/uploads/2025/04/fostering_nigerian_student_achievement.jpg");
 }
 
-/* Computing */
-.product-grid > .product-card:nth-of-type(3) .product-image {
-  background-image:
-    linear-gradient(0deg,rgba(8,20,40,.18),transparent),
-    url("https://writers.ng/wp-content/uploads/2025/04/fostering_nigerian_student_achievement.jpg");
+.product-grid .product-card:nth-child(4) .product-image {
+  background-image: url("https://www.elizadeuniversity.edu.ng/Banners/35ef8d6c-6222-41f0-8688-77691107da90_9b47a975-69d2-47c7-97db-010dfc09e0c1.jfif");
 }
 
-/* English */
-.product-grid > .product-card:nth-of-type(4) .product-image {
-  background-image:
-    linear-gradient(0deg,rgba(8,20,40,.18),transparent),
-    url("https://www.elizadeuniversity.edu.ng/Banners/35ef8d6c-6222-41f0-8688-77691107da90_9b47a975-69d2-47c7-97db-010dfc09e0c1.jfif");
+.product-grid .product-card:nth-child(5) .product-image {
+  background-image: url("https://babcock.edu.ng/curator/media/5e335704-efb6-41c0-9687-bf7337cbd24b.jpg?s=d948f838c6b78df9aa5b402d1bc76b50");
 }
 
-/* Economics */
-.product-grid > .product-card:nth-of-type(5) .product-image {
-  background-image:
-    linear-gradient(0deg,rgba(8,20,40,.18),transparent),
-    url("https://babcock.edu.ng/curator/media/5e335704-efb6-41c0-9687-bf7337cbd24b.jpg?s=d948f838c6b78df9aa5b402d1bc76b50");
+.product-grid .product-card:nth-child(6) .product-image {
+  background-image: url("https://ccu.edu.ng/wp-content/uploads/2022/02/CCU-for-MIL-102-1-scaled.jpg");
 }
 
-/* Business Administration */
-.product-grid > .product-card:nth-of-type(6) .product-image {
-  background-image:
-    linear-gradient(0deg,rgba(8,20,40,.18),transparent),
-    url("https://ccu.edu.ng/wp-content/uploads/2022/02/CCU-for-MIL-102-1-scaled.jpg");
-}
-
-/* AI learning assistant feature */
-.feature-card:nth-child(5) {
-  background:
-    linear-gradient(0deg,rgba(7,20,48,.94),rgba(7,20,48,.45)),
-    url("https://studentbrief.com.ng/public/images/hero-students.webp?v=1786435859")
-    center / cover no-repeat;
-  color: #FFFFFF;
-  border-color: transparent;
-}
-
-.feature-card:nth-child(5) h3 {
-  color: #FFFFFF;
-}
-
-.feature-card:nth-child(5) p {
-  color: #E8EEFA;
-}
-
-.feature-card:nth-child(5) .feature-icon {
-  background: rgba(255,201,40,.2);
-  color: #FFC928;
-}
-
-/* About section photographic background */
 .about-panel {
   background:
-    linear-gradient(90deg,rgba(7,20,48,.91),rgba(23,70,162,.48)),
+    linear-gradient(90deg, rgba(7,20,48,.9), rgba(23,70,162,.4)),
     url("https://claretianuniversity.edu.ng/img/ijmb-library-student-img.jpg")
     center / cover no-repeat;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  box-shadow: 0 20px 45px rgba(23,70,162,.18);
 }
 
-/* Improved cards */
-.product-card {
-  border-radius: 16px;
-  box-shadow: 0 8px 28px rgba(17,17,17,.045);
-}
-
-.product-card:hover {
-  box-shadow: 0 18px 40px rgba(23,70,162,.13);
-}
-
-.feature-card {
-  border-radius: 16px;
-  transition: transform .25s, box-shadow .25s;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(17,17,17,.08);
-}
-
-/* Mobile adjustments */
 @media(max-width:550px) {
   .hero-visual {
-    min-height: 360px;
-    padding: 22px;
-  }
-
-  .hero-visual h2 {
-    font-size: 31px;
-  }
-
-  .product-image {
-    height: 200px;
-  }
-
-  .about-panel {
-    min-height: 280px;
+    min-height: 350px;
   }
 }
-
 <style>
 :root {
   --blue: #1746A2;
