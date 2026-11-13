@@ -1657,35 +1657,112 @@ document.getElementById("year").textContent = new Date().getFullYear();
   </div>
 
 </section>
+    
+<!-- PROFILE -->
+<section class="dashboard-page" id="page-profile">
 
-    <!-- PROFILE -->
-    <section class="dashboard-page" id="page-profile">
-      <div class="dashboard-section-heading">
-        <div>
-          <span>PERSONAL INFORMATION</span>
-          <h2>My Student Profile</h2>
-          <p>Your registered academic information.</p>
-        </div>
-      </div>
+  <div class="dashboard-section-heading">
+    <div>
+      <span>YOUR PERSONAL SPACE</span>
+      <h2>My Student Profile</h2>
+      <p>Manage your identity and academic information on LOCKIIN.</p>
+    </div>
+  </div>
 
-      <div class="profile-information">
-        <div class="profile-large-avatar" id="profileAvatar">F</div>
-        <div>
-          <h2 id="profileStudentName">Student</h2>
-          <p id="profileStudentEmail">Student email</p>
-          <span class="profile-status">Registered student</span>
-        </div>
-      </div>
+  <div class="profile-premium-card">
 
-      <div class="profile-details-grid">
-        <div><small>FULL NAME</small><strong id="profileFullName">—</strong></div>
-        <div><small>UNIVERSITY</small><strong id="profileUniversity">—</strong></div>
-        <div><small>FACULTY</small><strong id="profileFaculty">—</strong></div>
-        <div><small>DEPARTMENT</small><strong id="profileDepartment">—</strong></div>
-        <div><small>ACADEMIC LEVEL</small><strong id="profileLevel">—</strong></div>
-        <div><small>EMAIL ADDRESS</small><strong id="profileEmail">—</strong></div>
+    <div class="profile-photo-area">
+      <div class="profile-large-avatar" id="profileAvatar">S</div>
+
+      <div class="profile-photo-controls">
+        <span class="profile-photo-label">PROFILE PHOTOGRAPH</span>
+        <h3>Make your profile yours.</h3>
+        <p>Choose a clear photo from your phone gallery or computer.</p>
+
+        <input
+          type="file"
+          id="profilePhotoInput"
+          accept="image/jpeg,image/png,image/webp"
+          hidden
+        >
+
+        <button
+          type="button"
+          class="profile-upload-button"
+          id="profilePhotoButton"
+        >
+          <span>↑</span> Upload profile photo
+        </button>
+
+        <p class="profile-photo-status" id="profilePhotoStatus">
+          JPG, PNG or WEBP · Maximum 5 MB
+        </p>
       </div>
-    </section>
+    </div>
+
+    <div class="profile-identity">
+      <div>
+        <span class="profile-status">● REGISTERED STUDENT</span>
+        <h2 id="profileStudentName">Student</h2>
+        <p id="profileStudentEmail">Student email</p>
+      </div>
+      <div class="profile-identity-mark">L.</div>
+    </div>
+
+  </div>
+
+  <div class="profile-academic-heading">
+    <div>
+      <span>ACADEMIC INFORMATION</span>
+      <h2>Your academic identity</h2>
+      <p>Your registered university and student details.</p>
+    </div>
+  </div>
+
+  <div class="profile-details-grid">
+
+    <div>
+      <small>FULL NAME</small>
+      <strong id="profileFullName">—</strong>
+    </div>
+
+    <div>
+      <small>UNIVERSITY</small>
+      <strong id="profileUniversity">—</strong>
+    </div>
+
+    <div>
+      <small>FACULTY</small>
+      <strong id="profileFaculty">—</strong>
+    </div>
+
+    <div>
+      <small>DEPARTMENT</small>
+      <strong id="profileDepartment">—</strong>
+    </div>
+
+    <div>
+      <small>ACADEMIC LEVEL</small>
+      <strong id="profileLevel">—</strong>
+    </div>
+
+    <div>
+      <small>EMAIL ADDRESS</small>
+      <strong id="profileEmail">—</strong>
+    </div>
+
+  </div>
+
+  <div class="profile-security-note">
+    <span>✓</span>
+    <div>
+      <strong>Your profile belongs to you.</strong>
+      <p>Your profile photo is stored with your LOCKIIN account.</p>
+    </div>
+  </div>
+
+</section>
+
 
     <!-- MARKETPLACE -->
     <section class="dashboard-page" id="page-marketplace">
