@@ -1787,6 +1787,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
   );
 window.supabaseClient = supabaseClient;
 
+
 function openPortal(page) {
     overlay.classList.add("active");
     overlay.classList.remove("dashboard-mode");
@@ -1802,8 +1803,6 @@ function openPortal(page) {
 }
 
 window.openPortal = openPortal;
-
-  window.openPortal = openPortal;
 
   function closePortal() {
     overlay.classList.remove("active");
