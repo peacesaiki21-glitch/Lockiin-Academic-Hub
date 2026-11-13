@@ -1815,27 +1815,94 @@ window.supabaseClient = supabaseClient;
     get("registerForm").style.display = "none";
     get("loginForm").style.display = "block";
   }
+function showDashboard(profile, user) {
+  portalForms.style.display = "none";
+  dashboard.classList.add("active");
+  overlay.classList.add("dashboard-mode");
 
-  function showDashboard(profile, user) {
-    portalForms.style.display = "none";
-    dashboard.classList.add("active");
+  const name =
+    profile.full_name ||
+    user.user_metadata?.full_name ||
+    user.email ||
+    "Student";
 
-    const name =
-      profile.full_name ||
-      user.user_metadata?.full_name ||
-      user.email;
+  const university = profile.university || "Not provided";
+  const faculty = profile.faculty || "Not provided";
+  const department = profile.department || "Not provided";
+  const level = profile.academic_level || "Not provided";
+  const email = user.email || "Not provided";
+  const initial = name.trim().charAt(0).toUpperCase() || "S";
 
-    get("welcomeStudent").textContent = "Welcome, " + name + "!";
+  get("welcomeStudent").textContent = "Welcome, " + name + "!";
+  get("overviewStudentName").textContent = name;
+  get("sidebarStudentName").textContent = name;
 
-    get("studentDetails").textContent = [
-      profile.university,
-      profile.faculty,
-      profile.department,
-      profile.academic_level
-    ].filter(Boolean).join(" · ");
+  get("dashboardAvatar").textContent = initial;
+  get("profileAvatar").textContent = initial;
+
+  get("overviewUniversity").textContent = university;
+  get("overviewFaculty").textContent = faculty;
+  get("overviewLevel").textContent = level;
+
+  get("profileStudentName").textContent = name;
+  get("profileStudentEmail").textContent = email;
+
+  get("profileFullName").textContent = name;
+  get("profileUniversity").textContent = university;
+  get("profileFaculty").textContent = faculty;
+  get("profileDepartment").textContent = department;
+  get("profileLevel").textContent = level;
+  get("profileEmail").textContent = email;
+  get("settingsEmail").textContent = email;
+
+  switchDashboardPage("overview");
+}
+
+function switchDashboardPage(page, clickedButton) {
+  const pages = root.querySelectorAll(".dashboard-page");
+
+  pages.forEach(section => {
+    section.classList.remove("active");
+  });
+
+  const selectedPage = get("page-" + page);
+
+  if (!selectedPage) return;
+
+  selectedPage.classList.add("active");
+
+  root.querySelectorAll(".dash-link").forEach(button => {
+    button.classList.remove("active");
+  });
+
+  if (clickedButton) {
+    clickedButton.classList.add("active");
+  } else {
+    const defaultButton = Array.from(
+      root.querySelectorAll(".dash-link")
+    ).find(button =>
+      button.getAttribute("onclick")?.includes("'overview'")
+    );
+
+    if (defaultButton) defaultButton.classList.add("active");
   }
 
-  async function loadStudentProfile(user) {
+  const titles = {
+    overview: "Overview",
+    profile: "My Profile",
+    marketplace: "Marketplace",
+    library: "My Library",
+    assistant: "AI Assistant",
+    notifications: "Notifications",
+    settings: "Settings"
+  };
+
+  get("dashboardPageTitle").textContent =
+    titles[page] || "Overview";
+}
+
+window.switchDashboardPage = switchDashboardPage;
+   async function loadStudentProfile(user) {
     const { data, error } = await supabaseClient
       .from("profiles")
       .select("*")
