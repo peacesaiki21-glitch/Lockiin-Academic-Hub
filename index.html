@@ -1940,9 +1940,13 @@ function showDashboard(profile, user) {
   get("overviewStudentName").textContent = name;
   get("sidebarStudentName").textContent = name;
 
-  get("dashboardAvatar").textContent = initial;
-  get("profileAvatar").textContent = initial;
+ const avatarUrl =
+  user.user_metadata?.avatar_url ||
+  profile.avatar_url ||
+  "";
 
+setProfileAvatar(get("dashboardAvatar"), initial, avatarUrl);
+setProfileAvatar(get("profileAvatar"), initial, avatarUrl);
   get("overviewUniversity").textContent = university;
   get("overviewFaculty").textContent = faculty;
   get("overviewLevel").textContent = level;
