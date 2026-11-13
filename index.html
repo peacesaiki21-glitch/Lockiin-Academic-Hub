@@ -2060,6 +2060,598 @@ window.supabaseClient = supabaseClient;
     min-height: 350px;
   }
 }
+  /* LOCKIIN FULL STUDENT DASHBOARD */
+
+#lockiin-portal .portal-overlay.dashboard-mode {
+  padding: 0;
+  align-items: stretch;
+  justify-content: stretch;
+  background: #F5F7FC;
+}
+
+#lockiin-portal .portal-overlay.dashboard-mode .portal-box {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  overflow: auto;
+  background: #F5F7FC;
+}
+
+#lockiin-portal .portal-overlay.dashboard-mode .portal-close {
+  display: none;
+}
+
+#lockiin-portal .portal-dashboard.active {
+  display: grid;
+  grid-template-columns: 255px minmax(0,1fr);
+  min-height: 100vh;
+  background: #F5F7FC;
+  color: #111;
+  font-family: Inter, Arial, sans-serif;
+}
+
+#lockiin-portal .dashboard-sidebar {
+  background: #103579;
+  color: white;
+  padding: 28px 19px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+#lockiin-portal .dashboard-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 22px;
+  font-weight: 950;
+  margin-bottom: 38px;
+}
+
+#lockiin-portal .dashboard-logo {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #FFC928;
+  color: #111;
+}
+
+#lockiin-portal .brand-dot {
+  color: #FFC928;
+}
+
+#lockiin-portal .dashboard-user {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 15px 9px;
+  background: #ffffff15;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  min-width: 0;
+}
+
+#lockiin-portal .user-avatar,
+#lockiin-portal .profile-large-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: #FFC928;
+  color: #111;
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+#lockiin-portal .user-avatar {
+  width: 42px;
+  height: 42px;
+  font-size: 18px;
+}
+
+#lockiin-portal .dashboard-user strong,
+#lockiin-portal .dashboard-user small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+#lockiin-portal .dashboard-user strong {
+  font-size: 13px;
+}
+
+#lockiin-portal .dashboard-user small {
+  font-size: 11px;
+  color: #DCE7FF;
+  margin-top: 3px;
+}
+
+#lockiin-portal .sidebar-label {
+  color: #AFC5F4;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  margin: 0 0 12px 10px;
+}
+
+#lockiin-portal .dashboard-nav {
+  display: grid;
+  gap: 7px;
+}
+
+#lockiin-portal .dash-link,
+#lockiin-portal .dashboard-logout {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: #E5EDFF;
+  padding: 13px 12px;
+  text-align: left;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#lockiin-portal .dash-link:hover,
+#lockiin-portal .dash-link.active {
+  background: #ffffff20;
+  color: #FFC928;
+}
+
+#lockiin-portal .sidebar-bottom {
+  margin-top: auto;
+  padding-top: 35px;
+  border-top: 1px solid #ffffff25;
+  display: grid;
+  gap: 8px;
+}
+
+#lockiin-portal .dashboard-logout {
+  color: #FFC5C5;
+}
+
+#lockiin-portal .dashboard-main {
+  min-width: 0;
+  padding: 30px 4%;
+}
+
+#lockiin-portal .dashboard-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #E2E7F0;
+}
+
+#lockiin-portal .dashboard-eyebrow,
+#lockiin-portal .dashboard-section-heading > div > span,
+#lockiin-portal .dashboard-welcome > div > span {
+  font-size: 10px;
+  color: #1746A2;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+}
+
+#lockiin-portal .dashboard-topbar h2 {
+  color: #111;
+  font-size: 23px;
+  margin-top: 3px;
+}
+
+#lockiin-portal .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #687386;
+  font-size: 12px;
+}
+
+#lockiin-portal .online-indicator {
+  width: 8px;
+  height: 8px;
+  background: #19A56B;
+  border-radius: 50%;
+}
+
+#lockiin-portal .mobile-dashboard-logout {
+  display: none;
+  border: 0;
+  background: #1746A2;
+  color: white;
+  border-radius: 7px;
+  padding: 8px 11px;
+}
+
+#lockiin-portal .dashboard-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 28px 0;
+  padding: 30px;
+  border-radius: 16px;
+  background: linear-gradient(115deg,#103579,#1746A2);
+  color: white;
+  overflow: hidden;
+}
+
+#lockiin-portal .dashboard-welcome > div > span {
+  color: #FFC928;
+}
+
+#lockiin-portal .dashboard-welcome h1 {
+  color: white;
+  font-size: clamp(22px,3vw,32px);
+  line-height: 1.25;
+  margin: 10px 0;
+}
+
+#lockiin-portal .dashboard-welcome h1 span {
+  color: #FFC928;
+}
+
+#lockiin-portal .dashboard-welcome p {
+  color: #E1E9FA;
+  font-size: 13px;
+}
+
+#lockiin-portal .welcome-decoration {
+  font-size: 85px;
+  font-weight: 950;
+  color: #ffffff25;
+}
+
+#lockiin-portal .dashboard-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+#lockiin-portal .dashboard-stat {
+  background: white;
+  border: 1px solid #E2E7F0;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 0;
+}
+
+#lockiin-portal .dashboard-stat span,
+#lockiin-portal .profile-details-grid small {
+  display: block;
+  color: #687386;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .7px;
+}
+
+#lockiin-portal .dashboard-stat strong {
+  display: block;
+  color: #1746A2;
+  font-size: 16px;
+  margin: 9px 0 5px;
+  overflow-wrap: anywhere;
+}
+
+#lockiin-portal .dashboard-stat small {
+  color: #687386;
+  font-size: 11px;
+}
+
+#lockiin-portal .dashboard-section-heading {
+  margin: 28px 0 19px;
+}
+
+#lockiin-portal .dashboard-section-heading h2 {
+  font-size: 23px;
+  color: #111;
+  margin: 5px 0;
+}
+
+#lockiin-portal .dashboard-section-heading p {
+  color: #687386;
+  font-size: 13px;
+}
+
+#lockiin-portal .dashboard-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 15px;
+}
+
+#lockiin-portal .dashboard-feature {
+  background: white;
+  border: 1px solid #E2E7F0;
+  border-radius: 13px;
+  padding: 21px;
+  text-align: left;
+  transition: .2s;
+}
+
+#lockiin-portal .dashboard-feature:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px #1111110D;
+  border-color: #1746A2;
+}
+
+#lockiin-portal .feature-symbol {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  background: #EAF0FF;
+  color: #1746A2;
+  border-radius: 10px;
+  font-size: 22px;
+  margin-bottom: 17px;
+}
+
+#lockiin-portal .dashboard-feature strong {
+  display: block;
+  font-size: 15px;
+  color: #111;
+}
+
+#lockiin-portal .dashboard-feature p {
+  color: #687386;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 8px 0 15px;
+}
+
+#lockiin-portal .feature-arrow {
+  color: #1746A2;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+#lockiin-portal .dashboard-bottom-panel,
+#lockiin-portal .settings-panel {
+  background: white;
+  border: 1px solid #E2E7F0;
+  border-radius: 13px;
+  padding: 24px;
+  margin-top: 25px;
+}
+
+#lockiin-portal .dashboard-bottom-panel > div > span {
+  color: #1746A2;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+#lockiin-portal .dashboard-bottom-panel h3 {
+  margin: 7px 0;
+}
+
+#lockiin-portal .dashboard-bottom-panel p,
+#lockiin-portal .settings-panel p {
+  color: #687386;
+  font-size: 13px;
+}
+
+#lockiin-portal .dashboard-bottom-panel button,
+#lockiin-portal .settings-logout {
+  background: #1746A2;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 15px;
+  font-weight: 800;
+  margin-top: 16px;
+}
+
+#lockiin-portal .dashboard-page {
+  display: none;
+  padding-bottom: 25px;
+}
+
+#lockiin-portal .dashboard-page.active {
+  display: block;
+}
+
+#lockiin-portal .profile-information {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  background: white;
+  border: 1px solid #E2E7F0;
+  padding: 25px;
+  border-radius: 13px;
+}
+
+#lockiin-portal .profile-large-avatar {
+  width: 65px;
+  height: 65px;
+  font-size: 26px;
+}
+
+#lockiin-portal .profile-information h2 {
+  font-size: 21px;
+}
+
+#lockiin-portal .profile-information p {
+  color: #687386;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+#lockiin-portal .profile-status {
+  display: inline-block;
+  color: #167A50;
+  background: #E6F7EF;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-top: 7px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+#lockiin-portal .profile-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 13px;
+  margin-top: 17px;
+}
+
+#lockiin-portal .profile-details-grid > div {
+  background: white;
+  border: 1px solid #E2E7F0;
+  border-radius: 11px;
+  padding: 19px;
+  min-width: 0;
+}
+
+#lockiin-portal .profile-details-grid strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+#lockiin-portal .coming-soon-panel {
+  background: white;
+  border: 1px solid #E2E7F0;
+  border-radius: 15px;
+  text-align: center;
+  padding: 55px 25px;
+  margin-top: 20px;
+}
+
+#lockiin-portal .coming-soon-panel > span:first-child {
+  display: grid;
+  place-items: center;
+  width: 65px;
+  height: 65px;
+  margin: auto auto 20px;
+  border-radius: 16px;
+  background: #EAF0FF;
+  color: #1746A2;
+  font-size: 30px;
+}
+
+#lockiin-portal .coming-soon-panel h2 {
+  color: #111;
+  margin-bottom: 10px;
+}
+
+#lockiin-portal .coming-soon-panel p {
+  max-width: 500px;
+  margin: auto;
+  color: #687386;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+#lockiin-portal .coming-soon-label {
+  display: inline-block;
+  margin-top: 22px;
+  background: #FFF4CE;
+  color: #795B00;
+  padding: 8px 12px;
+  border-radius: 30px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+#lockiin-portal .settings-panel h3 {
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+#lockiin-portal .settings-divider {
+  border-top: 1px solid #E2E7F0;
+  margin: 22px 0;
+}
+
+#lockiin-portal .dashboard-footer {
+  color: #8791A2;
+  font-size: 11px;
+  padding: 30px 0 10px;
+}
+
+@media(max-width:900px) {
+  #lockiin-portal .portal-dashboard.active {
+    grid-template-columns: 205px minmax(0,1fr);
+  }
+
+  #lockiin-portal .dashboard-feature-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:650px) {
+  #lockiin-portal .portal-dashboard.active {
+    display: block;
+  }
+
+  #lockiin-portal .dashboard-sidebar {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  #lockiin-portal .dashboard-brand {
+    margin-bottom: 16px;
+  }
+
+  #lockiin-portal .dashboard-user {
+    margin-bottom: 15px;
+  }
+
+  #lockiin-portal .sidebar-label {
+    margin-top: 5px;
+  }
+
+  #lockiin-portal .dashboard-nav {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+  #lockiin-portal .sidebar-bottom {
+    margin-top: 12px;
+    padding-top: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #lockiin-portal .dashboard-main {
+    padding: 18px 15px;
+  }
+
+  #lockiin-portal .dashboard-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #lockiin-portal .dashboard-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #lockiin-portal .dashboard-welcome {
+    padding: 23px 18px;
+  }
+
+  #lockiin-portal .welcome-decoration {
+    font-size: 55px;
+  }
+
+  #lockiin-portal .profile-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #lockiin-portal .topbar-right > span:not(.online-indicator) {
+    display: none;
+  }
+
+  #lockiin-portal .mobile-dashboard-logout {
+    display: block;
+  }
+}
 </style>
 
 </body>
