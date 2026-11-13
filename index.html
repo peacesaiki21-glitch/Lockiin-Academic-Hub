@@ -1253,20 +1253,6 @@ footer {
   </div>
 </div>
 
-<!-- ACCOUNT MODAL -->
-
-<div class="modal" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
-  <div class="modal-box">
-    <button class="close-modal" onclick="closeAccount()" aria-label="Close">×</button>
-    <h2 id="accountTitle">Student accounts</h2>
-    <p>
-      Student registration, login and personal libraries
-      are part of our next development stage.
-    </p>
-    <button class="primary-btn" onclick="closeAccount()">Continue exploring</button>
-  </div>
-</div>
-
 <script>
 const searchInput = document.getElementById("searchInput");
 const cards = Array.from(document.querySelectorAll(".product-card"));
@@ -1891,21 +1877,22 @@ window.supabaseClient = supabaseClient;
 
 
 function openPortal(page) {
-    overlay.classList.add("active");
-    overlay.classList.remove("dashboard-mode");
+  overlay.classList.add("active");
+  overlay.classList.remove("dashboard-mode");
 
-    portalForms.style.display = "block";
-    dashboard.classList.remove("active");
+  portalForms.style.display = "block";
+  dashboard.classList.remove("active");
 
-    if (page === "login") {
-      showLogin();
-    } else {
-      showRegister();
-    }
+  if (page === "login") {
+    get("registerForm").style.display = "none";
+    get("loginForm").style.display = "block";
+  } else {
+    get("loginForm").style.display = "none";
+    get("registerForm").style.display = "block";
+  }
 }
 
 window.openPortal = openPortal;
-
   function closePortal() {
     overlay.classList.remove("active");
   }
