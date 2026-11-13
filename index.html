@@ -1563,75 +1563,100 @@ document.getElementById("year").textContent = new Date().getFullYear();
       </div>
     </header>
 
-    <!-- OVERVIEW -->
-    <section class="dashboard-page active" id="page-overview">
+<!-- OVERVIEW -->
+<section class="dashboard-page active" id="page-overview">
 
-      <div class="dashboard-welcome">
-        <div>
-          <span>YOUR ACADEMIC SPACE</span>
-          <h1>Welcome back, <span id="overviewStudentName">Student</span> 👋</h1>
-          <p>Your academic world, connected. Let's make progress today.</p>
-        </div>
-        <div class="welcome-decoration">L.</div>
+  <div class="overview-hero">
+    <div class="overview-hero-copy">
+      <span class="overview-kicker">YOUR ACADEMIC SPACE</span>
+      <h1>Welcome back,<br><span id="overviewStudentName">Student</span> 👋</h1>
+      <p>Your academic journey deserves a smarter space. Discover resources, organise your learning and stay connected.</p>
+      <div class="overview-actions">
+        <button onclick="switchDashboardPage('marketplace')">Explore marketplace →</button>
+        <button onclick="switchDashboardPage('profile')">View my profile</button>
       </div>
+    </div>
 
-      <div class="dashboard-stat-grid">
-        <div class="dashboard-stat">
-          <span>UNIVERSITY</span>
-          <strong id="overviewUniversity">Not provided</strong>
-          <small>Your institution</small>
-        </div>
-        <div class="dashboard-stat">
-          <span>FACULTY</span>
-          <strong id="overviewFaculty">Not provided</strong>
-          <small>Your academic faculty</small>
-        </div>
-        <div class="dashboard-stat">
-          <span>ACADEMIC LEVEL</span>
-          <strong id="overviewLevel">Not provided</strong>
-          <small>Your current level</small>
-        </div>
-      </div>
+    <div class="overview-hero-card">
+      <div class="overview-hero-mark">L.</div>
+      <span>WELCOME TO LOCKIIN</span>
+      <h2>Your academic world, connected.</h2>
+      <p>One space for your academic resources and student journey.</p>
+    </div>
+  </div>
 
-      <div class="dashboard-section-heading">
-        <div>
-          <span>YOUR WORKSPACE</span>
-          <h2>Explore LOCKIIN</h2>
-        </div>
-      </div>
+  <div class="overview-section-title">
+    <div>
+      <span>YOUR ACADEMIC PROFILE</span>
+      <h2>Your student details</h2>
+      <p>Your registered academic information at a glance.</p>
+    </div>
+    <button onclick="switchDashboardPage('profile')">Full profile →</button>
+  </div>
 
-      <div class="dashboard-feature-grid">
-        <button class="dashboard-feature" onclick="switchDashboardPage('marketplace')">
-          <span class="feature-symbol">▤</span>
-          <strong>Marketplace</strong>
-          <p>Explore academic materials and past questions.</p>
-          <span class="feature-arrow">Explore →</span>
-        </button>
+  <div class="dashboard-stat-grid">
+    <div class="dashboard-stat">
+      <span>UNIVERSITY</span>
+      <strong id="overviewUniversity">Not provided</strong>
+      <small>Your institution</small>
+    </div>
 
-        <button class="dashboard-feature" onclick="switchDashboardPage('library')">
-          <span class="feature-symbol">▣</span>
-          <strong>My Library</strong>
-          <p>Your personal space for saved study materials.</p>
-          <span class="feature-arrow">Open library →</span>
-        </button>
+    <div class="dashboard-stat">
+      <span>FACULTY</span>
+      <strong id="overviewFaculty">Not provided</strong>
+      <small>Your academic faculty</small>
+    </div>
 
-        <button class="dashboard-feature" onclick="switchDashboardPage('assistant')">
-          <span class="feature-symbol">✧</span>
-          <strong>AI Assistant</strong>
-          <p>Get help finding relevant academic resources.</p>
-          <span class="feature-arrow">Explore →</span>
-        </button>
-      </div>
+    <div class="dashboard-stat">
+      <span>ACADEMIC LEVEL</span>
+      <strong id="overviewLevel">Not provided</strong>
+      <small>Your current level</small>
+    </div>
+  </div>
 
-      <div class="dashboard-bottom-panel">
-        <div>
-          <span>YOUR PROFILE</span>
-          <h3>Keep your academic details up to date.</h3>
-          <p>Review your student information and account details.</p>
-        </div>
-        <button onclick="switchDashboardPage('profile')">View profile →</button>
-      </div>
-    </section>
+  <div class="overview-section-title">
+    <div>
+      <span>EXPLORE YOUR WORKSPACE</span>
+      <h2>Everything starts here.</h2>
+      <p>Quick access to the tools and spaces inside LOCKIIN.</p>
+    </div>
+  </div>
+
+  <div class="dashboard-feature-grid">
+
+    <button class="dashboard-feature" onclick="switchDashboardPage('marketplace')">
+      <span class="feature-symbol">▤</span>
+      <strong>Marketplace</strong>
+      <p>Discover past questions and academic materials.</p>
+      <span class="feature-arrow">Explore marketplace →</span>
+    </button>
+
+    <button class="dashboard-feature" onclick="switchDashboardPage('library')">
+      <span class="feature-symbol">▣</span>
+      <strong>My Library</strong>
+      <p>Access your saved and purchased study materials.</p>
+      <span class="feature-arrow">Open my library →</span>
+    </button>
+
+    <button class="dashboard-feature" onclick="switchDashboardPage('assistant')">
+      <span class="feature-symbol">✧</span>
+      <strong>AI Assistant</strong>
+      <p>Discover a smarter way to find relevant resources.</p>
+      <span class="feature-arrow">Meet your assistant →</span>
+    </button>
+
+  </div>
+
+  <div class="overview-bottom-note">
+    <div>
+      <span>YOUR ACCOUNT</span>
+      <h3>Keep your student profile up to date.</h3>
+      <p>Make sure your academic information is accurate.</p>
+    </div>
+    <button onclick="switchDashboardPage('profile')">Manage profile →</button>
+  </div>
+
+</section>
 
     <!-- PROFILE -->
     <section class="dashboard-page" id="page-profile">
