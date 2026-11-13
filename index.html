@@ -1515,30 +1515,248 @@ document.getElementById("year").textContent = new Date().getFullYear();
         </div>
 
       </div>
+<!-- FULL STUDENT DASHBOARD -->
+<div class="portal-dashboard" id="portalDashboard">
 
-      <!-- STUDENT DASHBOARD -->
-      <div class="portal-dashboard" id="portalDashboard">
+  <aside class="dashboard-sidebar">
+    <div class="dashboard-brand">
+      <span class="dashboard-logo">L</span>
+      <span>LOCKIIN<span class="brand-dot">.</span></span>
+    </div>
 
-        <h2 id="welcomeStudent">Welcome!</h2>
+    <div class="dashboard-user">
+      <div class="user-avatar" id="dashboardAvatar">F</div>
+      <div>
+        <strong id="sidebarStudentName">Student</strong>
+        <small>Student account</small>
+      </div>
+    </div>
 
-        <p class="portal-sub">
-          Your academic world, connected.
-        </p>
+    <p class="sidebar-label">MAIN MENU</p>
 
-        <div class="portal-card">
-          <strong>Student profile</strong>
-          <p id="studentDetails"></p>
+    <nav class="dashboard-nav">
+      <button class="dash-link active" onclick="switchDashboardPage('overview',this)">▦ <span>Overview</span></button>
+      <button class="dash-link" onclick="switchDashboardPage('profile',this)">♙ <span>My Profile</span></button>
+      <button class="dash-link" onclick="switchDashboardPage('marketplace',this)">▤ <span>Marketplace</span></button>
+      <button class="dash-link" onclick="switchDashboardPage('library',this)">▣ <span>My Library</span></button>
+      <button class="dash-link" onclick="switchDashboardPage('assistant',this)">✧ <span>AI Assistant</span></button>
+      <button class="dash-link" onclick="switchDashboardPage('notifications',this)">♧ <span>Notifications</span></button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <button class="dash-link" onclick="switchDashboardPage('settings',this)">⚙ <span>Settings</span></button>
+      <button class="dashboard-logout" id="portalLogout">↪ <span>Log out</span></button>
+    </div>
+  </aside>
+
+  <main class="dashboard-main">
+
+    <header class="dashboard-topbar">
+      <div>
+        <span class="dashboard-eyebrow">LOCKIIN ACADEMIC</span>
+        <h2 id="dashboardPageTitle">Overview</h2>
+      </div>
+      <div class="topbar-right">
+        <span class="online-indicator"></span>
+        <span>Student portal</span>
+        <button class="mobile-dashboard-logout" id="mobileDashboardLogout" type="button">Log out</button>
+      </div>
+    </header>
+
+    <!-- OVERVIEW -->
+    <section class="dashboard-page active" id="page-overview">
+
+      <div class="dashboard-welcome">
+        <div>
+          <span>YOUR ACADEMIC SPACE</span>
+          <h1>Welcome back, <span id="overviewStudentName">Student</span> 👋</h1>
+          <p>Your academic world, connected. Let's make progress today.</p>
         </div>
-
-        <button class="portal-logout" id="portalLogout" type="button">
-          Log out
-        </button>
-
+        <div class="welcome-decoration">L.</div>
       </div>
 
-    </div>
-  </div>
+      <div class="dashboard-stat-grid">
+        <div class="dashboard-stat">
+          <span>UNIVERSITY</span>
+          <strong id="overviewUniversity">Not provided</strong>
+          <small>Your institution</small>
+        </div>
+        <div class="dashboard-stat">
+          <span>FACULTY</span>
+          <strong id="overviewFaculty">Not provided</strong>
+          <small>Your academic faculty</small>
+        </div>
+        <div class="dashboard-stat">
+          <span>ACADEMIC LEVEL</span>
+          <strong id="overviewLevel">Not provided</strong>
+          <small>Your current level</small>
+        </div>
+      </div>
 
+      <div class="dashboard-section-heading">
+        <div>
+          <span>YOUR WORKSPACE</span>
+          <h2>Explore LOCKIIN</h2>
+        </div>
+      </div>
+
+      <div class="dashboard-feature-grid">
+        <button class="dashboard-feature" onclick="switchDashboardPage('marketplace')">
+          <span class="feature-symbol">▤</span>
+          <strong>Marketplace</strong>
+          <p>Explore academic materials and past questions.</p>
+          <span class="feature-arrow">Explore →</span>
+        </button>
+
+        <button class="dashboard-feature" onclick="switchDashboardPage('library')">
+          <span class="feature-symbol">▣</span>
+          <strong>My Library</strong>
+          <p>Your personal space for saved study materials.</p>
+          <span class="feature-arrow">Open library →</span>
+        </button>
+
+        <button class="dashboard-feature" onclick="switchDashboardPage('assistant')">
+          <span class="feature-symbol">✧</span>
+          <strong>AI Assistant</strong>
+          <p>Get help finding relevant academic resources.</p>
+          <span class="feature-arrow">Explore →</span>
+        </button>
+      </div>
+
+      <div class="dashboard-bottom-panel">
+        <div>
+          <span>YOUR PROFILE</span>
+          <h3>Keep your academic details up to date.</h3>
+          <p>Review your student information and account details.</p>
+        </div>
+        <button onclick="switchDashboardPage('profile')">View profile →</button>
+      </div>
+    </section>
+
+    <!-- PROFILE -->
+    <section class="dashboard-page" id="page-profile">
+      <div class="dashboard-section-heading">
+        <div>
+          <span>PERSONAL INFORMATION</span>
+          <h2>My Student Profile</h2>
+          <p>Your registered academic information.</p>
+        </div>
+      </div>
+
+      <div class="profile-information">
+        <div class="profile-large-avatar" id="profileAvatar">F</div>
+        <div>
+          <h2 id="profileStudentName">Student</h2>
+          <p id="profileStudentEmail">Student email</p>
+          <span class="profile-status">Registered student</span>
+        </div>
+      </div>
+
+      <div class="profile-details-grid">
+        <div><small>FULL NAME</small><strong id="profileFullName">—</strong></div>
+        <div><small>UNIVERSITY</small><strong id="profileUniversity">—</strong></div>
+        <div><small>FACULTY</small><strong id="profileFaculty">—</strong></div>
+        <div><small>DEPARTMENT</small><strong id="profileDepartment">—</strong></div>
+        <div><small>ACADEMIC LEVEL</small><strong id="profileLevel">—</strong></div>
+        <div><small>EMAIL ADDRESS</small><strong id="profileEmail">—</strong></div>
+      </div>
+    </section>
+
+    <!-- MARKETPLACE -->
+    <section class="dashboard-page" id="page-marketplace">
+      <div class="dashboard-section-heading">
+        <div>
+          <span>DISCOVER RESOURCES</span>
+          <h2>Academic Marketplace</h2>
+          <p>Find learning materials for your academic journey.</p>
+        </div>
+      </div>
+      <div class="coming-soon-panel">
+        <span>▤</span>
+        <h2>Your academic marketplace</h2>
+        <p>The marketplace connection is being prepared. Verified past questions and study materials will appear here when the resource system is connected.</p>
+        <span class="coming-soon-label">MARKETPLACE IN DEVELOPMENT</span>
+      </div>
+    </section>
+
+    <!-- LIBRARY -->
+    <section class="dashboard-page" id="page-library">
+      <div class="dashboard-section-heading">
+        <div>
+          <span>YOUR MATERIALS</span>
+          <h2>My Library</h2>
+          <p>Your personal collection of academic resources.</p>
+        </div>
+      </div>
+      <div class="coming-soon-panel">
+        <span>▣</span>
+        <h2>Your personal library</h2>
+        <p>Materials you save or purchase will be organised here once the library and payment systems are connected.</p>
+        <span class="coming-soon-label">LIBRARY IN DEVELOPMENT</span>
+      </div>
+    </section>
+
+    <!-- AI ASSISTANT -->
+    <section class="dashboard-page" id="page-assistant">
+      <div class="dashboard-section-heading">
+        <div>
+          <span>SMART ACADEMIC SUPPORT</span>
+          <h2>LOCKIIN AI Assistant</h2>
+          <p>Your future academic resource companion.</p>
+        </div>
+      </div>
+      <div class="coming-soon-panel">
+        <span>✧</span>
+        <h2>Meet your academic assistant</h2>
+        <p>We're preparing an assistant that will help you describe the study materials you need and discover matching resources.</p>
+        <span class="coming-soon-label">AI ASSISTANT IN DEVELOPMENT</span>
+      </div>
+    </section>
+
+    <!-- NOTIFICATIONS -->
+    <section class="dashboard-page" id="page-notifications">
+      <div class="dashboard-section-heading">
+        <div>
+          <span>STAY UPDATED</span>
+          <h2>Notifications</h2>
+          <p>Important updates about your LOCKIIN account.</p>
+        </div>
+      </div>
+      <div class="coming-soon-panel">
+        <span>♧</span>
+        <h2>You're all caught up</h2>
+        <p>Account alerts and academic notifications will appear here when the notification system is connected.</p>
+        <span class="coming-soon-label">NOTIFICATIONS IN DEVELOPMENT</span>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="dashboard-page" id="page-settings">
+      <div class="dashboard-section-heading">
+        <div>
+          <span>ACCOUNT MANAGEMENT</span>
+          <h2>Settings</h2>
+          <p>Manage your LOCKIIN account.</p>
+        </div>
+      </div>
+      <div class="settings-panel">
+        <h3>Account information</h3>
+        <p id="settingsEmail">Your registered email will appear here.</p>
+        <div class="settings-divider"></div>
+        <h3>Account security</h3>
+        <p>Your account is managed through Supabase Authentication.</p>
+        <button class="settings-logout" onclick="document.getElementById('portalLogout').click()">Log out of LOCKIIN</button>
+      </div>
+    </section>
+
+    <footer class="dashboard-footer">
+      © 2026 LOCKIIN Academic. Your Academic World, Connected.
+    </footer>
+
+  </main>
+</div>
+<!-- END FULL STUDENT DASHBOARD -->
+     
 </div>
 
 <!-- END LOCKIIN STUDENT PORTAL -->
